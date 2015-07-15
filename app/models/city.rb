@@ -1,5 +1,5 @@
 class City < ActiveRecord::Base
-  has_many :workspaces
+  has_many :users
 
   validates :title, presence: true
 end

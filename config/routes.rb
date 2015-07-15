@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
   root 'homes#index'
-  devise_for :users
-  get '/users/sign_up/:invitation_token', :to => 'registrations#create'
+  devise_for :users,
+             controllers: { registrations: "my_devise/registrations"}
+  resources :topics do
+    resources :debates, only: [:new, :create]
+  end
+
+  resources :debates, only: [:show] do
+    resources :debate_participants, only: [:create]
+    resources :arguments, only: [:create]
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

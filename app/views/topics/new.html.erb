@@ -1,0 +1,13 @@
+<%= form_for @topic do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :category %>
+    <%= f.select :category, @categories.map {|a| [a, a] } %>
+  </div>
+
+  <%= f.submit 'Submit Topic', class:"button radius" %>
+<% end %>

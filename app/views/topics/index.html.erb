@@ -1,0 +1,7 @@
+<div class="topic-containter">
+  <% @topics.each do |topic| %>
+    <div class="topic-link">
+      <%= link_to "#{topic.title}", topic_path(topic) %>
+    </div>
+  <% end %>
+</div>

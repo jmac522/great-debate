@@ -1,0 +1,47 @@
+<% if @debate.empty? %>
+  <h2>Pick a Side</h2>
+  <%= form_for [ @debate, @debate_participant ] do |f|%>
+    <div>
+      <%= f.label :side %>
+      <%= f.select :side, @sides.map {|s| [s.title, s.id] } %>
+    </div>
+
+    <%= f.submit 'Join Debate', class:"button radius" %>
+
+  <% end %>
+
+<% elsif @debate.open? %>
+
+  <% if @debate.participant?(current_user) %>
+
+    <%= form_for [ @debate, @argument ] do |f|%>
+      <%= f.hidden_field :side, value: @debate.taken_side.id %>
+
+      <%= f.label(:body) %>
+      <%= f.text_area :body %>
+
+      <%= f.submit "Join #{@debate.remaining_side.title}", class:"button radius" %>
+    <% end %>
+
+  <% else %>
+
+    <% if @debate.arguments.count == 0 %>
+
+      waiting for opening argument
+
+    <% else %>
+
+      <%= form_for [ @debate, @debate_participant ] do |f|%>
+        <h2><%= "Opponent is arguing #{@debate.taken_side.title}" %></h2>
+        <%= f.label(:side) %>
+        <%= f.hidden_field :side, value: @debate.remaining_side.id %>
+
+        <%= f.submit "Join #{@debate.remaining_side.title}", class:"button radius" %>
+      <% end %>
+
+    <% end %>
+
+  <% end %>
+<% else %>
+  show debate for voting
+<% end %>
