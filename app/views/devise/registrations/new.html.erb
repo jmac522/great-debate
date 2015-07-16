@@ -29,7 +29,7 @@
 
     <div>
       <%= f.label :state %>
-      <%= f.select :state, State.all.map {|a| [a.abbreviation, a.id] } %>
+      <%= f.select :state, State.all.map {|a| [a.state, a.id] } %>
     </div>
 
 
