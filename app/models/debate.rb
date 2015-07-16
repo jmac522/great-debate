@@ -31,6 +31,10 @@ class Debate < ActiveRecord::Base
     end
   end
 
+  def is_turn?(current_user)
+    self.turn == DebateParticipant.find_by(user:current_user, debate: self).side.title
+  end
+
   def swap_turn
     if self.turn == side_1.title
       self.turn = side_2.title

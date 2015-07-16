@@ -8,6 +8,14 @@ class DebatesController < ApplicationController
     @sides = @debate.sides
     @debate_participant = DebateParticipant.new
     @argument = Argument.new
+    @side_1_user = DebateParticipant.find_by(debate: @debate, side: @debate.side_1)
+    @side_2_user = DebateParticipant.find_by(debate: @debate, side: @debate.side_2)
+    @side_1_arguments = @side_1_user.arguments
+    unless @side_2_user.nil?
+      @side_2_arguments = @side_2_user.arguments
+    else
+      @side_2_arguments = []
+    end
   end
 
   def new

@@ -1,29 +1,39 @@
 <% if @debate.empty? %>
+  <div class="topic-title">
+    <h1><%= @debate.topic.title %></h1>
+  </div>
   <h2>Pick a Side</h2>
-  <%= form_for [ @debate, @debate_participant ] do |f|%>
-    <div>
-      <%= f.label :side %>
-      <%= f.select :side, @sides.map {|s| [s.title, s.id] } %>
-    </div>
+    <%= form_for [ @debate, @debate_participant ] do |f|%>
+      <div>
+        <%= f.label :side %>
+        <%= f.select :side, @sides.map {|s| [s.title, s.id] } %>
+      </div>
 
-    <%= f.submit 'Join Debate', class:"button radius" %>
+      <%= f.submit 'Join Debate', class:"button radius" %>
 
-  <% end %>
+    <% end %>
 
 <% elsif @debate.open? %>
 
   <% if @debate.participant?(current_user) %>
     <% if @debate.arguments.count == 0 %>
-      <h2>Make your Opening Argument</h2>
+      <div class="topic-title">
+        <h1><%= @debate.topic.title %></h1>
+      </div>
+      <h2>Make your Opening Argument for <%= @debate.taken_side.title %></h2>
       <%= form_for [ @debate, @argument ] do |f|%>
         <%= f.hidden_field :side, value: @debate.taken_side.id %>
 
         <%= f.label(:body) %>
         <%= f.text_area :body %>
 
-        <%= f.submit "Join #{@debate.remaining_side.title}", class:"button radius" %>
+        <%= f.submit "Submit Argument", class:"button radius" %>
       <% end %>
     <% else %>
+      <div class="topic-title">
+        <h1><%= @debate.topic.title %></h1>
+      </div>
+      <%= render 'arguments' %>
       <h2>Waiting for opponent to join</h2>
     <% end %>
   <% else %>
@@ -33,6 +43,11 @@
       waiting for opening argument
 
     <% else %>
+      <div class="topic-title">
+        <h1><%= @debate.topic.title %></h1>
+      </div>
+      <%= render 'arguments' %>
+
       <%= form_for [ @debate, @debate_participant ] do |f|%>
         <h2><%= "Opponent is arguing #{@debate.taken_side.title}" %></h2>
         <%= f.hidden_field :side, value: @debate.remaining_side.id %>
@@ -45,10 +60,43 @@
   <% end %>
 <% else %>
 
-  <% if @debate.participant %>
-    
+  <% if @debate.participant?(current_user) %>
+    <% if @debate.arguments.count == 6 %>
+      <div class="topic-title">
+        <h1><%= @debate.topic.title %></h1>
+      </div>
+      <%= render 'arguments' %>
+      Scoring Begins!!
+    <% else %>
+
+      <% if @debate.is_turn?(current_user) %>
+        <div class="topic-title">
+          <h1><%= @debate.topic.title %></h1>
+        </div>
+        <%= render 'arguments' %>
+        <%= form_for [ @debate, @argument ] do |f|%>
+          <%= f.hidden_field :side, value: @debate.taken_side.id %>
+
+          <%= f.label(:body) %>
+          <%= f.text_area :body %>
+
+          <%= f.submit "Submit Argument", class:"button radius" %>
+        <% end %>
+      <% else %>
+        <div class="topic-title">
+          <h1><%= @debate.topic.title %></h1>
+        </div>
+        <%= render 'arguments' %>
+
+        Waiting for opponent's argument
+      <% end %>
+
+    <% end %>
   <% else %>
-    show debate for voting
+    <div class="topic-title">
+      <h1><%= @debate.topic.title %></h1>
+    </div>
+    <%= render 'arguments' %>
   <% end %>
 
 <% end %>

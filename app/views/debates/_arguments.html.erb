@@ -1,0 +1,25 @@
+
+<div class="small-12 columns argument-container">
+  <div class="small-5 columns side-arguments">
+    <h2><%= @debate.side_1.title %></h2>
+    <% @side_1_arguments.each_with_index do |argument, round| %>
+      <div class="argument panel">
+        <h3>Round <%= round + 1 %></h3>
+        Body:<%= argument.body %>
+        Score:<%= argument.score %>
+      </div>
+    <% end %>
+  </div>
+  <div class="versus small-1 columns">
+    <h1>VS.</h1>
+  </div>
+  <div class="small-5 columns side-arguments">
+    <h2><%= @debate.side_2.title %></h2>
+    <% @side_2_arguments.each do |argument| %>
+      <div class="argument panel data-equalizer-watch">
+        Body:<%= argument.body %>
+        Score:<%= argument.score %>
+      </div>
+    <% end %>
+  </div>
+</div>
