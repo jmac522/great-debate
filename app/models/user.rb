@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many :debate_participants
   has_many :sides, through: :debate_participants
 
+  mount_uploader :avatar, AvatarUploader
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 end

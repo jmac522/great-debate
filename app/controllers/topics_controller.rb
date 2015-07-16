@@ -5,6 +5,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    @debates = Debate.where(topic: @topic)
   end
 
   def new

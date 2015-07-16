@@ -1,4 +1,12 @@
 
 <h1><%= @topic.title %></h1>
-
 <h2><%= link_to "Start a Debate", new_topic_debate_path(@topic) %></h2>
+<div class="topic-debate-container">
+  <% @debates.each do |debate| %>
+    <div class="topic-debate-container">
+      <div class="topic-debate-sides">
+        <%= debate.side_1.title %> VS. <%= debate.side_2.title %>
+      </div>
+    </div>
+  <% end %>
+</div>
