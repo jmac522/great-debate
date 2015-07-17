@@ -14,6 +14,14 @@ class Debate < ActiveRecord::Base
     sides.second
   end
 
+  def player_1
+    DebateParticipant.find_by(debate: self, side: self.side_1).user
+  end
+
+  def player_2
+    DebateParticipant.find_by(debate: self, side: self.side_2).user
+  end
+
   def participant?(current_user)
     users.include?(current_user)
   end
