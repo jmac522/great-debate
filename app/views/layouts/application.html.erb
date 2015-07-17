@@ -7,10 +7,11 @@
   </head>
   <body>
     <%- if current_user -%>
-      <div class="medium-3 columns">
+    <div class="row main-container">
+      <div class="small-3 columns">
 
         <ul class="side-nav">
-          <a href=<%= topics_path %> id="logo"><%= image_tag "logo.png", size: '300', alt: "Great Debate Logo" %></a>
+          <a href=<%= topics_path %> id="logo"><%= image_tag "logo1.png", size: '300', alt: "Great Debate Logo" %></a>
 
           <br>
           <br>
@@ -24,10 +25,12 @@
         </ul>
       </div>
 
-      <div class="medium-9 columns content">
+      <div class="small-12 columns content">
         <%= render "shared/contents" %>
       </div>
+    </div>
     <%- else -%>
+    <div class="row">
       <div class="medium-3 columns">
         <ul class="side-nav">
           <a href=<%= topics_path %> id="logo"><%= image_tag "logo.png", size: '300', alt: "Great Workspace Logo" %></a>
@@ -45,6 +48,7 @@
       <div class="medium-9 columns content">
         <%= render "shared/contents" %>
       </div>
+    </div>
     <%- end -%>
 
     <%= javascript_include_tag 'application' %>

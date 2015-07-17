@@ -43,12 +43,19 @@ $secondary-font: 'Play', sans-serif;
 
 .argument-container {
   margin-top: 15px;
-  background-color: darkgrey;
+  background-color: rgba(160, 157, 163, 0.5);
+  border-radius: 15px;
+  border: 1px solid black;
   h3 {
     font-family: $main-font;
     text-align: center;
     text-decoration: underline;
   }
+}
+
+.argument {
+  border-radius: 10px;
+  border: 1px solid black;
 }
 
 .topic-title {
@@ -60,30 +67,25 @@ $secondary-font: 'Play', sans-serif;
   }
 }
 
-.side_arguments {
-  display: inline-block;
-  background-color: green;
+.side-arguments {
+  h2 {
+    text-align: center;
+    text-decoration: underline;
+  }
 }
 
 .side-link a {
   color: white !important;
+  width: 150px;
+  text-align: center;
 }
 
 .side-link:hover a {
   border-radius: 10px;
-  background-image: -webkit-gradient(
-  linear,
-  left bottom,
-  right bottom,
-  color-stop(0.02, $accent-color),
-  color-stop(0.02, $background)
-  ) !important;
-  background-image: -o-linear-gradient(right, $accent-color 2%, $background 2%) !important;
-  background-image: -moz-linear-gradient(right, $accent-color 2%, $background 2%) !important;
-  background-image: -webkit-linear-gradient(right, $accent-color 2%, $background 2%) !important;
-  background-image: -ms-linear-gradient(right, $accent-color 2%, $background 2%) !important;
-  background-image: linear-gradient(to right, $accent-color 2%, $background 2%) !important;
+  background-color: white !important;
+  border: 3px solid $accent-color;
   color: $primary-color !important;
+  text-decoration: underline;
   opacity: 0.9;
 }
 
@@ -102,6 +104,7 @@ $secondary-font: 'Play', sans-serif;
   top: 0;
   width: 15em;
   font-family: $main-font;
+  border-right: 1px solid black;
 
   li {
     font-size: 1.2em;
@@ -132,7 +135,6 @@ $secondary-font: 'Play', sans-serif;
   padding: 1.250em;
   padding-top: 0;
   padding-left: 2%;
-  left: 17.5em !important;
   height: 100%;
   h2 {
     font-family: $main-font;
@@ -140,6 +142,7 @@ $secondary-font: 'Play', sans-serif;
 }
 
 .versus {
+  padding-top: 70px;
   h1 {
     font-family: $secondary-font;
   }
@@ -191,4 +194,30 @@ $secondary-font: 'Play', sans-serif;
     padding-left: 10px;
   }
 
+}
+
+.debate-player-conatiner {
+  padding-bottom: 15px;
+  img {
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+  }
+}
+
+.debate-player-info {
+  text-align: center;
+}
+
+.debate-player-avatar {
+  text-align: center;
+}
+
+body {
+  background-color: $accent-color;
+}
+
+.main-container {
+  margin-left: 17.5em;
+  margin-right: 25px;
 }
