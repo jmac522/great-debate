@@ -14,12 +14,36 @@ class Debate < ActiveRecord::Base
     sides.second
   end
 
+  def participant_1
+    unless DebateParticipant.find_by(debate: self, side: self.side_1).nil?
+      DebateParticipant.find_by(debate: self, side: self.side_1)
+    else
+      false
+    end
+  end
+
+  def participant_2
+    unless DebateParticipant.find_by(debate: self, side: self.side_2).nil?
+      DebateParticipant.find_by(debate: self, side: self.side_2)
+    else
+      false
+    end
+  end
+
   def player_1
-    DebateParticipant.find_by(debate: self, side: self.side_1).user
+    unless DebateParticipant.find_by(debate: self, side: self.side_1).nil?
+      DebateParticipant.find_by(debate: self, side: self.side_1).user
+    else
+      false
+    end
   end
 
   def player_2
-    DebateParticipant.find_by(debate: self, side: self.side_2).user
+    unless DebateParticipant.find_by(debate: self, side: self.side_2).nil?
+      DebateParticipant.find_by(debate: self, side: self.side_2).user
+    else
+      false
+    end
   end
 
   def participant?(current_user)

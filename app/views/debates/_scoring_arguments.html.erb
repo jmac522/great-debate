@@ -1,0 +1,47 @@
+<div class="small-12 columns argument-container">
+  <div class="small-5 columns side-arguments">
+    
+      <% @side_1_arguments.each_with_index do |argument, round| %>
+        <div class="argument panel">
+          <div><h3>Round <%= round + 1 %></h3></div>
+          <div>Body:<%= argument.body %></div>
+          <div>Applauds:<%= argument.score %></div>
+          <div>
+            <% unless current_user.voted?(argument) %>
+              <%= form_for @vote do |f| %>
+                <%= f.hidden_field :user, value: current_user.id %>
+                <%= f.hidden_field :debate_participant, value: argument.debate_participant.id %>
+                <%= f.hidden_field :argument, value: argument.id %>
+
+                <%= f.submit "Applaud this argument", class:"button radius" %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+  </div>
+  <div class="versus small-1 columns">
+    
+  </div>
+  <div class="small-5 columns side-arguments">
+    
+      <% @side_2_arguments.each_with_index do |argument, round| %>
+        <div class="argument panel">
+          <div><h3>Round <%= round + 1 %></h3></div>
+          <div>Body:<%= argument.body %></div>
+          <div>Applauds:<%= argument.score %></div>
+          <div>
+            <% unless current_user.voted?(argument) %>
+              <%= form_for @vote do |f| %>
+                <%= f.hidden_field :user, value: current_user.id %>
+                <%= f.hidden_field :debate_participant, value: argument.debate_participant.id %>
+                <%= f.hidden_field :argument, value: argument.id %>
+
+                <%= f.submit "Applaud this argument", class:"button radius" %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>

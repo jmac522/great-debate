@@ -3,6 +3,7 @@
   <div class="small-5 columns side-arguments">
     <h2><%= @debate.side_1.title %></h2>
     <div class="debate-player-conatiner row">
+      <% if @debate.player_1 %>
       <div class="debate-player-avatar small-12 columns">
         <%= image_tag(@debate.player_1.avatar) %>
       </div>
@@ -12,12 +13,13 @@
           <%= @debate.player_1.city.title + ", " + @debate.player_1.state.state %>
         </div>
       </div>
+      <% end %>
     </div>
       <% @side_1_arguments.each_with_index do |argument, round| %>
         <div class="argument panel">
-          <h3>Round <%= round + 1 %></h3>
-          Body:<%= argument.body %>
-          Score:<%= argument.score %>
+          <div><h3>Round <%= round + 1 %></h3></div>
+          <div>Body:<%= argument.body %></div>
+          <div>Applauds:<%= argument.score %></div>
         </div>
       <% end %>
   </div>
@@ -26,9 +28,10 @@
   </div>
   <div class="small-5 columns side-arguments">
     <h2><%= @debate.side_2.title %></h2>
+    <% if @debate.player_2 %>
     <div class="debate-player-conatiner row">
       <div class="debate-player-avatar small-12 columns">
-        <%= image_tag(@debate.player_2.avatar) %>
+        <%= image_tag(@debate.player_2.avatar) if @debate.player_2 %>
       </div>
       <div class="debate-player-info small-12 columns">
         <div><%= @debate.player_2.email %></div>
@@ -37,11 +40,12 @@
         </div>
       </div>
     </div>
+    <% end %>
       <% @side_2_arguments.each_with_index do |argument, round| %>
         <div class="argument panel">
-          <h3>Round <%= round + 1 %></h3>
-          Body:<%= argument.body %>
-          Score:<%= argument.score %>
+          <div><h3>Round <%= round + 1 %></h3></div>
+          <div>Body:<%= argument.body %></div>
+          <div>Applauds:<%= argument.score %></div>
         </div>
       <% end %>
   </div>

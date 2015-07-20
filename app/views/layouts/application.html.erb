@@ -8,11 +8,11 @@
   <body>
     <%- if current_user -%>
     <div class="row main-container">
-      <div class="small-3 columns">
 
-        <ul class="side-nav">
-          <a href=<%= topics_path %> id="logo"><%= image_tag "logo1.png", size: '300', alt: "Great Debate Logo" %></a>
-
+      <div class="small-12 columns">
+        <ul class="side-nav small-12 columns">
+          <div class="side-color"><span></span></div>
+          <li class="side-logo"><a href=<%= topics_path %> id="logo"><%= image_tag "logo2.png", size: '300', alt: "Great Debate Logo" %></a></li>
           <br>
           <br>
           <br>
@@ -22,8 +22,10 @@
           <li class="side-link"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
           <li class="bottom-avatar"><%= image_tag(current_user.avatar) if current_user.avatar %></li>
           <li class="bottom-avatar-text">User: <%= current_user.email %></li>
+
         </ul>
       </div>
+
 
       <div class="small-12 columns content">
         <%= render "shared/contents" %>
@@ -33,7 +35,7 @@
     <div class="row">
       <div class="medium-3 columns">
         <ul class="side-nav">
-          <a href=<%= topics_path %> id="logo"><%= image_tag "logo.png", size: '300', alt: "Great Workspace Logo" %></a>
+          <a href=<%= topics_path %> id="logo"><%= image_tag "logo2.png", size: '300', alt: "Great Workspace Logo" %></a>
           <br>
           <br>
           <br>

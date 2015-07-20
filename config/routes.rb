@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :debates, only: [:new, :create]
   end
 
+  resources :votes, only:[:create]
+
   resources :debates, only: [:show] do
     resources :debate_participants, only: [:create]
     resources :arguments, only: [:create]

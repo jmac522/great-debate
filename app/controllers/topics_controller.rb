@@ -20,6 +20,7 @@ class TopicsController < ApplicationController
       redirect_to topics_path
     else
       flash[:notice] = @topic.errors.full_messages
+      @categories = ["Politics", "Religion", "Pop Culture", "Other"]
       render :new
     end
   end

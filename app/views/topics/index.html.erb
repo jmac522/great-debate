@@ -1,7 +1,9 @@
-<div class="topic-containter">
+<h1 style="text-align: center">All Topics</h1>
+<div class="topic-container panel">
   <% @topics.each do |topic| %>
     <div class="topic-link">
-      <%= link_to "#{topic.title}", topic_path(topic) %>
+      <h1><%= link_to "#{topic.title}", topic_path(topic) %></h1>
     </div>
   <% end %>
 </div>
+<h2><%= link_to "Add Topic", new_topic_path %></h2>

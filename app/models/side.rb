@@ -4,4 +4,7 @@ class Side < ActiveRecord::Base
   has_many :debates, through: :debate_sides
   has_many :debate_participants #change to has many
   has_many :arguments
+
+  validates :title, { presence: true, uniqueness: true }
+  validates :topic, presence: true
 end
