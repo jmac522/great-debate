@@ -14,6 +14,10 @@ class Debate < ActiveRecord::Base
     sides.second
   end
 
+  def slider_position
+    50 - (participant_1.score - participant_2.score)*5
+  end
+
   def participant_1
     unless DebateParticipant.find_by(debate: self, side: self.side_1).nil?
       DebateParticipant.find_by(debate: self, side: self.side_1)

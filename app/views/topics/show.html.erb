@@ -9,32 +9,52 @@
 <div class="topic-debate-container panel">
   <% @debates.each do |debate| %>
     <div class="topic-debate-info panel row">
-      <div class="topic-debate-side small-5 columns">
+      <div class="topic-debate-side small-4 columns">
         <div><a href="<%= debate_path(debate) %>"><span></span></a></div>
         <div class="topic-side-name small-12">
           <%= debate.side_1.title %>
         </div>
         <% if debate.player_1 %>
-        <div class="topic-side-avatar small-12">
-          <%= image_tag(debate.player_1.avatar) %>
-        </div>
+          <div class="topic-debate-player">
+            <div class="topic-side-avatar small-6 columns">
+              <%= image_tag(debate.player_1.avatar) %>
+            </div>
+            <div class="topic-side-user small-6 columns">
+              <%= debate.player_1.email %>
+            </div>
+          </div>
         <% end %>
       </div>
-      <div class="topic-versus small-2 columns">
+      <div class="topic-versus small-4 columns">
         <div><a href="<%= debate_path(debate) %>"><span></span></a></div>
-        <h1>VS.</h1>
+        <div class="small-12 columns">
+          <h1>VS.</h1>
+        </div>
+        <div class="small-12 columns">
+          <div class="range-slider round disabled" data-slider="<%= debate.slider_position %>">
+            <span class="range-slider-handle" role="slider" tabindex="0"></span>
+            <span class="range-slider-active-segment"></span>
+            <input type="hidden">
+          </div>
+        </div>
       </div>
-      <div class="topic-debate-side small-5 columns">
+      <div class="topic-debate-side small-4 columns">
         <div><a href="<%= debate_path(debate) %>"><span></span></a></div>
         <div class="topic-side-name small-12">
-          <%= link_to debate.side_2.title, debate_path(debate) %>
+          <%= debate.side_2.title %>
         </div>
         <% if debate.player_2 %>
-          <div class="topic-side-avatar small-12">
+        <div class="topic-debate-player">
+          <div class="topic-side-2-user small-6 columns">
+            <%= debate.player_2.email %>
+          </div>
+          <div class="topic-side-avatar small-6 columns">
             <%= image_tag(debate.player_2.avatar) %>
           </div>
+        </div>
         <% end %>
       </div>
     </div>
   <% end %>
+  <h3><%= link_to "Add Debate", new_topic_debate_path(@topic) %></h3>
 </div>
