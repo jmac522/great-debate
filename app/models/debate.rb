@@ -15,7 +15,11 @@ class Debate < ActiveRecord::Base
   end
 
   def slider_position
-    50 - (participant_1.score - participant_2.score)*5
+    if participant_1 && participant_2
+      50 - (participant_1.score - participant_2.score)*5
+    else
+      50
+    end
   end
 
   def participant_1
