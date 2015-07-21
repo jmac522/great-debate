@@ -1,6 +1,7 @@
-<div class="small-12 columns argument-container">
+<div class="argument-content">
+<div class="argument-container">
   <div class="small-5 columns side-arguments">
-    
+
       <% @side_1_arguments.each_with_index do |argument, round| %>
         <div class="argument panel">
           <div><h3>Round <%= round + 1 %></h3></div>
@@ -21,10 +22,10 @@
       <% end %>
   </div>
   <div class="versus small-1 columns">
-    
+
   </div>
   <div class="small-5 columns side-arguments">
-    
+
       <% @side_2_arguments.each_with_index do |argument, round| %>
         <div class="argument panel">
           <div><h3>Round <%= round + 1 %></h3></div>
@@ -44,4 +45,5 @@
         </div>
       <% end %>
   </div>
+</div>
 </div>

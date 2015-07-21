@@ -22,4 +22,14 @@
         <% end %>
     </div>
   </div>
+  <div class="small-12 columns argument-form-two" >
+    <%= form_for [ @debate, @argument ] do |f| %>
+      <%= f.hidden_field :side, value: @debate.taken_side.id %>
+
+      <%= f.label(:body) %>
+      <%= f.text_area :body %>
+
+      <%= f.submit "Submit Argument", class:"button radius" %>
+    <% end %>
+  </div>
 </div>

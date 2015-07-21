@@ -44,14 +44,16 @@ $secondary-font: 'Play', sans-serif;
 .argument-container {
   margin-top: 222px;
   background-color: #733c35;
-  border-radius: 5px;
   padding-top: 15px;
+  overflow: auto;
+  width: 99%;
   h3 {
     font-family: $main-font;
     text-align: center;
     text-decoration: underline;
   }
 }
+
 
 .argument {
   border-radius: 5px;
@@ -105,7 +107,7 @@ $secondary-font: 'Play', sans-serif;
   left: 0;
   position: fixed;
   top: 0;
-  width: 17em;
+  width: 13em;
   font-family: $main-font;
   padding: 0;
 
@@ -135,9 +137,7 @@ $secondary-font: 'Play', sans-serif;
 
 .content {
   font-family: $main-font;
-  padding: 1.250em;
-  padding-top: 0;
-  padding-left: 2%;
+  padding: 0;
   height: 100%;
   h2 {
     font-family: $main-font;
@@ -221,13 +221,15 @@ $secondary-font: 'Play', sans-serif;
 }
 
 body {
-  background-color: $background;
+  background-color: #733c35;
+  overflow-x: hidden;
 }
 
 .main-container {
-  margin: 0px 324px;
-  max-width: 73.5rem;
-  width: 100%;
+  margin-left: 208px;
+  max-width: 74.5rem;
+  width: 84%;
+  height: 100%;
   overflow: auto;
 }
 
@@ -347,7 +349,8 @@ li.side-logo {
 .debate-top-bar {
   z-index: 10;
 position: fixed;
-width: 1132px;
+right: 0;
+left: 13em;
 background-color: #d9bd86;
 margin: auto;
 border-bottom: 7px solid rgb(217,153,26);
@@ -366,4 +369,27 @@ border-bottom: 7px solid rgb(217,153,26);
 
 .topic-debate-side {
   text-align: center;
+}
+
+.argument-content {
+ position: absolute;
+ top: 0; bottom: 0; left: 0; right: 0;
+ overflow: auto;
+}
+
+.argument-form-container {
+  margin-top: 268px;
+  h2 {
+    color: white
+  }
+}
+
+.argument-form-two {
+  form textarea {
+    background-color: rgba(300,300,300, 0.5)
+  }
+}
+
+label {
+  color: white;
 }

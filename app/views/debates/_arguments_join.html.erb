@@ -22,4 +22,12 @@
         <% end %>
     </div>
   </div>
+  <div class="join-side-form small-12 columns">
+    <%= form_for [ @debate, @debate_participant ] do |f|%>
+      <h2><%= "Opponent is arguing #{@debate.taken_side.title}" %></h2>
+      <%= f.hidden_field :side, value: @debate.remaining_side.id %>
+
+      <%= f.submit "Defend #{@debate.remaining_side.title}", class:"button radius" %>
+    <% end %>
+    </div>
 </div>
