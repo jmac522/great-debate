@@ -17,8 +17,9 @@
 //= require foundation
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
-
+$(window).on('load', function () {
+  $(document).foundation();
+});
 
 $(function () {
    $('#products').data('url');
