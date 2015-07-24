@@ -60,3 +60,4 @@ gem 'rails_12factor'
 
 # heroku
 gem 'puma'
+ruby "2.1.5"
