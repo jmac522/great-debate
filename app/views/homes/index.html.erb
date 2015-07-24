@@ -1,4 +1,5 @@
 <div class="home-container small-12 columns">
+  <% if @argument_user && @top_argument && @recent_topics && @recent_debates %>
   <div class="row" data-equalizer>
     <div class="featured-arguments small-8 medium-8 large-5 columns panel" data-equalizer-watch>
       <span class='top-argument-header small-12 columns'><h2>Featured Argument</h2></span>
@@ -40,5 +41,7 @@
     <% end %>
   </div>
 </div>
-
+<% else %>
+<h1>Welcome to Great Debate</h1>
+<% end %>
 </div>
