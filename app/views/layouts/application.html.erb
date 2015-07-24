@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Great Debate</title>
+    <link href='https://fonts.googleapis.com/css?family=Dosis|Play' rel='stylesheet' type='text/css'>
     <%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= csrf_meta_tags %>
@@ -34,7 +35,7 @@
     </div>
     <%- else -%>
     <div class="row">
-      <div class="medium-3 columns">
+      <div class="small-12 columns">
         <ul class="side-nav">
           <a href=<%= topics_path %> id="logo"><%= image_tag "logo2.png", size: '300', alt: "Great Workspace Logo" %></a>
           <br>
@@ -48,7 +49,7 @@
         </ul>
       </div>
 
-      <div class="medium-9 columns content">
+      <div class="small-12 columns content">
         <%= render "shared/contents" %>
       </div>
     </div>
