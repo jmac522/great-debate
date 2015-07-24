@@ -1,47 +1,5 @@
 <div class="home-container small-12 columns">
-  <% if @argument_user && @top_argument && @recent_topics && @recent_debates %>
-  <div class="row" data-equalizer>
-    <div class="featured-arguments small-8 medium-8 large-5 columns panel" data-equalizer-watch>
-      <span class='top-argument-header small-12 columns'><h2>Featured Argument</h2></span>
-      <span class='top-argument-user small-6 columns'>User: <%= @argument_user.email %></span>
-      <span class='top-argument-avatar small-6 columns'><%= image_tag(@argument_user.avatar) %></span>
-      <span class='top-argument-score small-12 columns'>Score: <%= @top_argument.score %></span>
-      <span class='top-argument-body small-12 columns'><%= @top_argument.body %></span>
-    </div>
 
-    <div class="top-users small-8 medium-8 large-6 columns panel" data-equalizer-watch>
-      <div class="small-6 columns">
-        <h2>Leaderboard</h2>
-        <table>
-          <tr>
-            <td>User</td>
-            <td>XP</td>
-          </tr>
-          <% @top_users.each do |user| %>
-            <tr>
-              <td><%= user.email %></td>
-              <td><%= user.xp %></td>
-            </tr>
-          <% end %>
-        </table>
-      </div>
-      <div class="small-6 columns">
-        <h2>Newest Topics</h2>
-        <% @recent_topics.each do |topic| %>
-          <%= topic.title %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-<div class="row">
-  <div class="featured-debates small-12 columns panel">
-    <h2>Recent Debates</h2>
-    <% @recent_debates.each do |debate| %>
-      <%= render partial: "home_debates", locals: {debate: debate} %>
-    <% end %>
-  </div>
-</div>
-<% else %>
 <h1>Welcome to Great Debate</h1>
-<% end %>
+
 </div>
