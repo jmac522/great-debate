@@ -5,6 +5,5 @@ class HomesController < ApplicationController
     @recent_debates = Debate.all.order("created_at DESC").limit(3)
     @top_users = User.all.order("xp DESC").limit(10)
     @recent_topics = Topic.all.order("created_at DESC").limit(3)
-    binding.pry
   end
 end
