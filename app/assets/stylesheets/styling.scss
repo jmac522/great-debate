@@ -226,7 +226,7 @@ $secondary-font: 'Play', sans-serif;
 }
 
 body {
-  background-image: image-url("background1.jpg");
+  background-image: url(asset-path('background1.jpg'));
   overflow-x: hidden;
 }
 
