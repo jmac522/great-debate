@@ -1,6 +1,9 @@
 <h1 style="text-align: center">All Topics</h1>
 <div class="topic-container panel">
   <% @topics.each do |topic| %>
+    <%= content_tag "div", id: "container", data: {title: (topic.sides.map {|side| side.title}), score: (topic.sides.map {|side| side.points})   } do %>
+      test
+    <% end %>
     <div class="topic-link">
       <h1><%= link_to "#{topic.title}", topic_path(topic) %></h1>
     </div>

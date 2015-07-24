@@ -1,9 +1,10 @@
 $primary-color: #102124;
-$secondary-color: rgb(213,86,69);
-$tertiary-color: rgb(16,33,36);
-$background: rgb(217,189,134);
+$goldenrod: rgb(50,153,187);
+$tertiary-color: rgb(66,66,66);
+$background: rgb(188,188,188);
 $accent-color:rgb(217,189,134);
 $white: #fff;
+$light-grey: rgb(215,215,215);
 $main-font: 'Dosis', sans-serif;
 $secondary-font: 'Play', sans-serif;
 
@@ -36,14 +37,16 @@ $secondary-font: 'Play', sans-serif;
   background-color: white;
   border: medium solid $accent-color;
   border-width: 1px;
-  color: $secondary-color;
+  color: $goldenrod;
   opacity: 0.8;
   transition: all 1s ease-out;
 }
 
 .argument-container {
-  margin-top: 222px;
-  background-color: #733c35;
+  margin-top: 158px;
+  margin-left: 12px;
+  background: none;
+  border: none;
   padding-top: 15px;
   overflow: auto;
   width: 99%;
@@ -56,15 +59,17 @@ $secondary-font: 'Play', sans-serif;
 
 
 .argument {
-  border-radius: 5px;
+
 }
 
 .topic-title {
   text-align: center;
   h1 {
     font-family: $main-font;
-    font-style: bold;
-    text-decoration: underline;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0px;
+    border-bottom: 5px solid #d9991a;
   }
 }
 
@@ -145,10 +150,10 @@ $secondary-font: 'Play', sans-serif;
 }
 
 .versus {
-  padding-top: 33px;
   padding-left: 28px;
   h1 {
     font-family: $secondary-font;
+    padding-left: 32px;
   }
 }
 
@@ -182,7 +187,7 @@ $secondary-font: 'Play', sans-serif;
 
 .workspace-links {
   a {
-    color: $secondary-color;
+    color: $goldenrod;
     float:right;
     font-size: 0.85em;
     padding: 0 3px;
@@ -191,7 +196,7 @@ $secondary-font: 'Play', sans-serif;
 
 .workspace-update-links {
   a {
-    color: $secondary-color;
+    color: $goldenrod;
     float: right;
     font-size: 0.85em;
     letter-spacing: 0.1em;
@@ -221,7 +226,7 @@ $secondary-font: 'Play', sans-serif;
 }
 
 body {
-  background-color: #733c35;
+  background-image: image-url("background1.jpg");
   overflow-x: hidden;
 }
 
@@ -238,21 +243,36 @@ body {
 }
 
 .topic-debate-container {
-    border-radius: 5px;
-    background-color: #733c35;
-    border: none;
+  padding-top: 75px;
+  color:black;
+  background:none;
+  border: none;
   img {
     height: 100px;
     width: 100px;
     border-radius: 10px;
   }
+  h1 {
+    color: black;
+    text-align: center;
+    text-decoration: underline;
+  }
+  .panel {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #d8d8d8;
+    margin-bottom: 1.25rem;
+    padding: 1.25rem;
+    color: #333333;
+  }
 }
 
 .topic-debate-info {
   border: none;
-  border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 6px grey;
+  background-color: rgb(66,66,66);
   padding-top: 2px;
+  border-radius:4px;
   a span {
     position:absolute;
     width:100%;
@@ -261,6 +281,13 @@ body {
     left: 0;
     z-index: 1;
   }
+  h1 {
+    color: white;
+  }
+}
+
+.item {
+  background-color: rgb(66,66,66);
 }
 
 .topic-debate-info.row {
@@ -273,6 +300,7 @@ body {
     color: white;
     font-family: $secondary-font;
     text-align: center;
+    text-decoration: none;
   }
 }
 
@@ -300,7 +328,7 @@ body {
 }
 
 .topic-side-user {
-  color: white;
+  color: black;
   font-size: 20px;
   text-decoration: underline;
   padding-top: 13px;
@@ -308,7 +336,7 @@ body {
 }
 
 .topic-side-2-user {
-  color: white;
+  color: black;
   font-size: 20px;
   text-decoration: underline;
   padding-top: 13px;
@@ -318,8 +346,11 @@ body {
 .side-color {
   float: right;
   height: 100%;
-  width: 10px;
-  background-color: $secondary-color;
+  width: 3px;
+  background-color: #3299bb;
+  position: absolute;
+  left: 12.8em;
+  top: 3.8em;
 }
 
 li.side-logo {
@@ -329,37 +360,48 @@ li.side-logo {
 
 .argument.panel {
   border-style: solid;
-  border-width: 7px;
-  border-color: rgb(213,86,69);
+  border-width: 1px;
+  border-color: grey;
   margin-bottom: 1.25rem;
   padding: 1.25rem;
   background: #f2f2f2;
   color: #333333;
+  box-shadow: 5px 5px 4px #888888;
+  h3 {
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 12px;
+  }
 }
 
 .topic-title {
   h1 {
     text-align: center;
+    margin-top: 0;
     width: 100%;
     margin-bottom: 0px;
-    border-bottom: 7px solid rgb(217,153,26);
+    background-color: rgb(66,66,66);
+    color: whitesmoke;
+    border-bottom: 2px solid #d9991a;
   }
 }
 
 .debate-top-bar {
   z-index: 10;
-position: fixed;
-right: 0;
-left: 13em;
-background-color: #d9bd86;
-margin: auto;
-border-bottom: 7px solid rgb(217,153,26);
+  position: fixed;
+  right: 0;
+  left: 13em;
+  background-color: rgba($background, 0.7);
+  margin: auto;
+  border-bottom: 3px solid rgb(217,153,26);
+    h2 {
+      padding-top: 5px;
+    }
 }
 
 .top-bar-bottom {
   width: 100%;
-  height: 7px;
-  background-color: $secondary-color;
+  height: 3px;
+  background-color: #3299bb;
 
 }
 
@@ -369,6 +411,15 @@ border-bottom: 7px solid rgb(217,153,26);
 
 .topic-debate-side {
   text-align: center;
+  border-width: 3px;
+}
+
+.blue {
+  border-color: rgb(50,153,187);
+}
+
+.yellow {
+  border-color: rgb(255,153,0);
 }
 
 .argument-content {
@@ -392,4 +443,48 @@ border-bottom: 7px solid rgb(217,153,26);
 
 label {
   color: white;
+}
+
+#container {
+  height: 350px;
+  width: 80%;
+  margin: auto;
+}
+
+.topic-pie-chart {
+  width: 80%;
+  margin: auto;
+}
+
+.graph {
+  padding: 5px;
+}
+
+.start-debate{
+  h2{
+    margin-bottom: 4px;
+    padding: 0px;
+  }
+  a {
+    border-top: 1px solid lightgrey;
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+    background-color: lightgrey;
+    margin-bottom: 0;
+    padding: 0px 13px;
+  }
+}
+
+.pan {
+  background-color: lightgrey;
+}
+
+.arg-body {
+  text-align: center;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 12px;
+}
+
+.arg-applauds {
+  text-align: center;
 }

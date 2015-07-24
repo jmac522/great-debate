@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>Great Debate</title>
+    <%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= csrf_meta_tags %>
-    <link href='http://fonts.googleapis.com/css?family=Dosis|Play' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <%- if current_user -%>
@@ -12,7 +12,7 @@
 
       <div class="small-12 columns">
         <ul class="side-nav small-12 columns">
-          <div class="side-color"><span></span></div>
+
           <li class="side-logo"><a href=<%= topics_path %> id="logo"><%= image_tag "logo2.png", size: '300', alt: "Great Debate Logo" %></a></li>
           <br>
           <br>

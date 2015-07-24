@@ -1,11 +1,11 @@
 <div class="argument-content">
-  <div class="argument-container">
+  <div class="argument-container panel">
     <div class="small-5 columns side-arguments">
         <% @side_1_arguments.each_with_index do |argument, round| %>
           <div class="argument panel">
             <div><h3>Round <%= round + 1 %></h3></div>
-            <div>Body:<%= argument.body %></div>
-            <div>Applauds:<%= argument.score %></div>
+            <div class="arg-body"><%= argument.body %></div>
+            <div class="arg-applauds">Applauds:<%= argument.score %></div>
           </div>
         <% end %>
     </div>
@@ -16,8 +16,8 @@
         <% @side_2_arguments.each_with_index do |argument, round| %>
           <div class="argument panel">
             <div><h3>Round <%= round + 1 %></h3></div>
-            <div>Body:<%= argument.body %></div>
-            <div>Applauds:<%= argument.score %></div>
+            <div class="arg-body"><%= argument.body %></div>
+            <div class="arg-applauds">Applauds:<%= argument.score %></div>
           </div>
         <% end %>
     </div>

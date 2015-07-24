@@ -1097,8 +1097,8 @@ $range-slider-bar-border-style: solid;
 $range-slider-bar-border-color: rgba(217,189,134,0);
 // $range-slider-radius: $global-radius;
 // $range-slider-round: $global-rounded;
- $range-slider-bar-bg-color: rgb(213,86,69);
-$range-slider-active-segment-bg-color: rgb(217,153,26);
+ $range-slider-bar-bg-color: rgb(255,153,0);
+$range-slider-active-segment-bg-color: rgb(50,153,187);
 
 // Vertical bar styles
 // $range-slider-vertical-bar-width: rem-calc(16);
@@ -1109,9 +1109,9 @@ $range-slider-active-segment-bg-color: rgb(217,153,26);
 // $range-slider-handle-height: rem-calc(22);
 // $range-slider-handle-position-top: rem-calc(-5);
 $range-slider-handle-bg-color: #102124;
- $range-slider-handle-border-width: 1px;
-$range-slider-handle-border-style: solid;
-$range-slider-handle-border-color: rgb(217,189,134);
+ //$range-slider-handle-border-width: 1px;
+$range-slider-handle-border-style: none;
+//$range-slider-handle-border-color: rgb(217,189,134);
 // $range-slider-handle-radius: $global-radius;
 // $range-slider-handle-round: $global-rounded;
  $range-slider-handle-bg-hover-color:  #102124;
