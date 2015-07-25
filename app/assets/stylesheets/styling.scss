@@ -140,9 +140,19 @@ $secondary-font: 'Play', sans-serif;
 
 }
 
+.topic-tile {
+  .panel {
+    height: 100%;
+    text-align: center;
+  }
+
+  img {
+    margin-bottom: 1em;
+  }
+}
+
 .content {
   font-family: $main-font;
-  padding: 0;
   height: 100%;
   h2 {
     font-family: $main-font;

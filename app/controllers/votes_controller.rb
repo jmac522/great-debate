@@ -1,10 +1,11 @@
 class VotesController < ApplicationController
 
   def create
-    binding.pry
+
     @vote = Vote.new(user: User.find(vote_params[:user]),
                      argument: Argument.find(vote_params[:argument]),
                      debate_participant: DebateParticipant.find(vote_params[:debate_participant]))
+   binding.pry
     if @vote.save
       @vote.debate_participant.score += @vote.value
       @vote.debate_participant.side.points += @vote.value

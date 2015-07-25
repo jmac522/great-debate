@@ -1,9 +1,19 @@
-<h1 style="text-align: center">All Topics</h1>
-<div class="topic-container panel">
-  <% @topics.each do |topic| %>
-    <div class="topic-link">
-      <h1><%= link_to "#{topic.title}", topic_path(topic) %></h1>
-    </div>
-  <% end %>
+
+<div class="topic-index-container small-12 columns">
+  <h1 style="text-align: center">All Topics</h1>
+  <div class="topic-container panel row" data-equalizer>
+    <% @topics.each do |topic| %>
+        <div class="topic-tile small-3 columns end" data-equalizer-watch>
+          <div class="panel">
+            <div class="title small-12 columns">
+              <h2><%= topic.title %></h2>
+            </div>
+            <div class="category-img small-12 columns">
+              <%= image_tag(topic.category_img) %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <h2><%= link_to "Add Topic", new_topic_path %></h2>
 </div>
-<h2><%= link_to "Add Topic", new_topic_path %></h2>

@@ -25,38 +25,13 @@
       </div>
       <div class="small-5 columns side-arguments">
         <h2><%= @debate.side_1.title %></h2>
-        <div class="debate-player-conatiner row">
-          <% if @debate.player_1 %>
-          <div class="debate-player-avatar small-6 columns">
-            <%= image_tag(@debate.player_1.avatar) %>
-          </div>
-          <div class="debate-player-info small-6 columns">
-            <div><%= @debate.player_1.email %></div>
-            <div>
-              <%= @debate.player_1.city.title + ", " + @debate.player_1.state.state %>
-            </div>
-          </div>
-          <% end %>
-        </div>
+
       </div>
       <div class="versus small-2 columns">
         <h1>VS.</h1>
       </div>
       <div class="small-5 columns side-arguments">
         <h2><%= @debate.side_2.title %></h2>
-        <% if @debate.player_2 %>
-        <div class="debate-player-conatiner row">
-          <div class="debate-player-avatar small-6 columns">
-            <%= image_tag(@debate.player_2.avatar) if @debate.player_2 %>
-          </div>
-          <div class="debate-player-info small-6 columns">
-            <div><%= @debate.player_2.email %></div>
-            <div>
-              <%= @debate.player_2.city.title + ", " + @debate.player_2.state.state %>
-            </div>
-          </div>
-        </div>
-        <% end %>
       </div>
       <div class='top-bar-bottom small-12 columns'></div>
       <div class='top-bar-bottom'></div>
@@ -79,38 +54,13 @@
       </div>
       <div class="small-5 columns side-arguments">
         <h2><%= @debate.side_1.title %></h2>
-        <div class="debate-player-conatiner row">
-          <% if @debate.player_1 %>
-          <div class="debate-player-avatar small-12 columns">
-            <%= image_tag(@debate.player_1.avatar) %>
-          </div>
-          <div class="debate-player-info small-12 columns">
-            <div><%= @debate.player_1.email %></div>
-            <div>
-              <%= @debate.player_1.city.title + ", " + @debate.player_1.state.state %>
-            </div>
-          </div>
-          <% end %>
-        </div>
+
       </div>
       <div class="versus small-2 columns">
         <h1>VS.</h1>
       </div>
       <div class="small-5 columns side-arguments">
         <h2><%= @debate.side_2.title %></h2>
-        <% if @debate.player_2 %>
-        <div class="debate-player-conatiner row">
-          <div class="debate-player-avatar small-6 columns">
-            <%= image_tag(@debate.player_2.avatar) if @debate.player_2 %>
-          </div>
-          <div class="debate-player-info small-6 columns">
-            <div><%= @debate.player_2.email %></div>
-            <div>
-              <%= @debate.player_2.city.title + ", " + @debate.player_2.state.state %>
-            </div>
-          </div>
-        </div>
-        <% end %>
       </div>
       <div class='top-bar-bottom small-12 columns'></div>
       <div class='top-bar-bottom'></div>
@@ -131,38 +81,13 @@
       </div>
       <div class="small-5 columns side-arguments">
         <h2><%= @debate.side_1.title %></h2>
-        <div class="debate-player-conatiner row">
-          <% if @debate.player_1 %>
-          <div class="debate-player-avatar small-12 columns">
-            <%= image_tag(@debate.player_1.avatar) %>
-          </div>
-          <div class="debate-player-info small-12 columns">
-            <div><%= @debate.player_1.email %></div>
-            <div>
-              <%= @debate.player_1.city.title + ", " + @debate.player_1.state.state %>
-            </div>
-          </div>
-          <% end %>
-        </div>
+
       </div>
       <div class="versus small-2 columns">
         <h1>VS.</h1>
       </div>
       <div class="small-5 columns side-arguments">
         <h2><%= @debate.side_2.title %></h2>
-        <% if @debate.player_2 %>
-        <div class="debate-player-conatiner row">
-          <div class="debate-player-avatar small-6 columns">
-            <%= image_tag(@debate.player_2.avatar) if @debate.player_2 %>
-          </div>
-          <div class="debate-player-info small-6 columns">
-            <div><%= @debate.player_2.email %></div>
-            <div>
-              <%= @debate.player_2.city.title + ", " + @debate.player_2.state.state %>
-            </div>
-          </div>
-        </div>
-        <% end %>
       </div>
       <div class='top-bar-bottom small-12 columns'></div>
       <div class='top-bar-bottom'></div>
@@ -176,48 +101,23 @@
 
   <% if @debate.participant?(current_user) %>
     <% if @debate.arguments.count == 6 %>
-      <div class="top-bar-container small-12 columns">
-        <div class="debate-top-bar">
-          <div class="topic-title small-12 columns">
-            <h1><%= @debate.topic.title %></h1>
-          </div>
-          <div class="small-5 columns side-arguments">
-            <h2><%= @debate.side_1.title %></h2>
-            <div class="debate-player-conatiner row">
-              <% if @debate.player_1 %>
-              <div class="debate-player-avatar small-6 columns">
-                <%= image_tag(@debate.player_1.avatar) %>
-              </div>
-              <div class="debate-player-info small-6 columns">
-                <div><%= @debate.player_1.email %></div>
-                <div>
-                  <%= @debate.player_1.city.title + ", " + @debate.player_1.state.state %>
-                </div>
-              </div>
-              <% end %>
-            </div>
-          </div>
-          <div class="versus small-1 columns">
-            <h1>VS.</h1>
-          </div>
-          <div class="small-5 columns side-arguments">
-            <h2><%= @debate.side_2.title %></h2>
-            <% if @debate.player_2 %>
-            <div class="debate-player-conatiner row">
-              <div class="debate-player-avatar small-6 columns">
-                <%= image_tag(@debate.player_2.avatar) if @debate.player_2 %>
-              </div>
-              <div class="debate-player-info small-6 columns">
-                <div><%= @debate.player_2.email %></div>
-                <div>
-                  <%= @debate.player_2.city.title + ", " + @debate.player_2.state.state %>
-                </div>
-              </div>
-            </div>
-            <% end %>
-          </div>
-        </div>
+    <div class="debate-top-bar">
+      <div class="topic-title">
+        <h1><%= @debate.topic.title %></h1>
       </div>
+      <div class="small-5 columns side-arguments">
+        <h2><%= @debate.side_1.title %></h2>
+
+      </div>
+      <div class="versus small-2 columns">
+        <h1>VS.</h1>
+      </div>
+      <div class="small-5 columns side-arguments">
+        <h2><%= @debate.side_2.title %></h2>
+      </div>
+      <div class='top-bar-bottom small-12 columns'></div>
+      <div class='top-bar-bottom'></div>
+    </div>
       <%= render 'arguments' %>
       Scoring Begins!!
     <% else %>
@@ -229,38 +129,13 @@
         </div>
         <div class="small-5 columns side-arguments">
           <h2><%= @debate.side_1.title %></h2>
-          <div class="debate-player-conatiner row">
-            <% if @debate.player_1 %>
-            <div class="debate-player-avatar small-6 columns">
-              <%= image_tag(@debate.player_1.avatar) %>
-            </div>
-            <div class="debate-player-info small-6 columns">
-              <div><%= @debate.player_1.email %></div>
-              <div>
-                <%= @debate.player_1.city.title + ", " + @debate.player_1.state.state %>
-              </div>
-            </div>
-            <% end %>
-          </div>
+
         </div>
         <div class="versus small-2 columns">
           <h1>VS.</h1>
         </div>
         <div class="small-5 columns side-arguments">
           <h2><%= @debate.side_2.title %></h2>
-          <% if @debate.player_2 %>
-          <div class="debate-player-conatiner row">
-            <div class="debate-player-avatar small-6 columns">
-              <%= image_tag(@debate.player_2.avatar) if @debate.player_2 %>
-            </div>
-            <div class="debate-player-info small-6 columns">
-              <div><%= @debate.player_2.email %></div>
-              <div>
-                <%= @debate.player_2.city.title + ", " + @debate.player_2.state.state %>
-              </div>
-            </div>
-          </div>
-          <% end %>
         </div>
         <div class='top-bar-bottom small-12 columns'></div>
         <div class='top-bar-bottom'></div>
@@ -273,38 +148,13 @@
         </div>
         <div class="small-5 columns side-arguments">
           <h2><%= @debate.side_1.title %></h2>
-          <div class="debate-player-conatiner row">
-            <% if @debate.player_1 %>
-            <div class="debate-player-avatar small-6 columns">
-              <%= image_tag(@debate.player_1.avatar) %>
-            </div>
-            <div class="debate-player-info small-6 columns">
-              <div><%= @debate.player_1.email %></div>
-              <div>
-                <%= @debate.player_1.city.title + ", " + @debate.player_1.state.state %>
-              </div>
-            </div>
-            <% end %>
-          </div>
+
         </div>
         <div class="versus small-2 columns">
           <h1>VS.</h1>
         </div>
         <div class="small-5 columns side-arguments">
           <h2><%= @debate.side_2.title %></h2>
-          <% if @debate.player_2 %>
-          <div class="debate-player-conatiner row">
-            <div class="debate-player-avatar small-6 columns">
-              <%= image_tag(@debate.player_2.avatar) if @debate.player_2 %>
-            </div>
-            <div class="debate-player-info small-6 columns">
-              <div><%= @debate.player_2.email %></div>
-              <div>
-                <%= @debate.player_2.city.title + ", " + @debate.player_2.state.state %>
-              </div>
-            </div>
-          </div>
-          <% end %>
         </div>
         <div class='top-bar-bottom small-12 columns'></div>
         <div class='top-bar-bottom'></div>
@@ -322,7 +172,7 @@
       </div>
       <div class="small-5 columns side-arguments">
         <h2><%= @debate.side_1.title %></h2>
-        
+
       </div>
       <div class="versus small-2 columns">
         <h1>VS.</h1>

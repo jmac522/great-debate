@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.all
+    @topics = Topic.all.page(params[:page]).per(4)
   end
 
   def show
@@ -10,7 +10,7 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
-    @categories = ["Politics", "Religion", "Pop Culture", "Other"]
+    @categories = ["Politics", "Religion", "Pop Culture","Philosophy", "Other"]
   end
 
   def create
