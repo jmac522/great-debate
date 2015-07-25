@@ -5,6 +5,7 @@
     <% @topics.each do |topic| %>
         <div class="topic-tile small-3 columns end" data-equalizer-watch>
           <div class="panel">
+            <div><a href="<%= topic_path(topic) %>"><span class="tile-link"></span></a></div>
             <div class="title small-12 columns">
               <h2><%= topic.title %></h2>
             </div>
@@ -14,6 +15,12 @@
           </div>
         </div>
     <% end %>
+    <div class="row topic-index-bottom">
+      <div  class="small-12 columns paginate">
+        <%= paginate @topics %>
+        <%= page_entries_info @topics %>
+      </div>
+      <div class="small-12 columns"<h2><%= link_to "Add Topic", new_topic_path %></h2></div>
+    </div>
   </div>
-  <h2><%= link_to "Add Topic", new_topic_path %></h2>
 </div>
