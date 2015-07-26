@@ -24,22 +24,37 @@ $secondary-font: 'Play', sans-serif;
 .clearfix { display: block; }
 
 
-.button {
-  background-color: $tertiary-color;
-}
 
-.button {
+
+input.button {
   background-color: $tertiary-color;
   transition: all 0.6s ease-in;
 }
 
-.button:hover {
-  background-color: white;
-  border: medium solid $accent-color;
+input.button:hover {
+  background-color: lightgrey;
+  border: medium solid $goldenrod;
   border-width: 1px;
-  color: $goldenrod;
+  color: $primary-color;
   opacity: 0.8;
   transition: all 1s ease-out;
+}
+
+.button[disabled]:hover {
+  background-color: lightgrey;
+  border: medium solid $goldenrod;
+  border-width: 1px;
+  color: $primary-color;
+  opacity: 0.8;
+  transition: all 1s ease-out;
+}
+
+.button[disabled] {
+ background-color: lightgrey;
+ border: medium solid $goldenrod;
+ border-width: 1px;
+ color: $primary-color;
+ opacity: 0.8;
 }
 
 .argument-container {
@@ -93,7 +108,7 @@ $secondary-font: 'Play', sans-serif;
 .side-link:hover a {
   border-radius: 10px;
   background-color: white !important;
-  border: 3px solid $accent-color;
+  border: 3px solid $goldenrod;
   color: $primary-color !important;
   text-decoration: underline;
   opacity: 0.9;
@@ -527,4 +542,37 @@ label {
 
 .paginate {
   padding-top: 10px;
+}
+
+.form {
+  label {
+    color: black;
+  }
+}
+
+.new-form-container {
+  margin-top: 10px;
+}
+
+
+
+.topic-tile-home {
+  height: 80%;
+  .home-topic {
+    background-color: white;
+    height: 100%;
+    text-align: center;
+  }
+
+  img {
+    margin-bottom: 1em;
+  }
+}
+
+.home-container {
+  h1 {
+    font-family: $main-font;
+    text-align: center;
+    text-decoration: underline;
+  }
 }

@@ -1,9 +1,6 @@
 class DebatesController < ApplicationController
-  def index
-    @topics = Topic.all
-  end
-
   def show
+    authenticate!
     @debate = Debate.find(params[:id])
     @sides = @debate.sides
     @debate_participant = DebateParticipant.new
@@ -24,13 +21,15 @@ class DebatesController < ApplicationController
   end
 
   def new
+    authenticate!
     @topic = find_topic
     @debate = Debate.new
   end
 
   def create
     @debate = Debate.new(topic: find_topic)
-    if @debate.save
+    if !(params[:side_1] == "" && params[:side_2] == "")
+      @debate.save
       side_1 = Side.find_or_create_by!(title: params[:side_1], topic: @debate.topic)
       DebateSide.create!(side: side_1, debate: @debate)
       side_2 = Side.find_or_create_by!(title: params[:side_2], topic: @debate.topic)
@@ -38,7 +37,9 @@ class DebatesController < ApplicationController
       flash[:notice] = "#{@debate.side_1.title} vs. #{@debate.side_2.title} added!"
       redirect_to debate_path(@debate)
     else
-      flash[:notice] = @topic.errors.full_messages
+      flash[:error] = "Must enter two sides"
+      @topic = find_topic
+      @debate = Debate.new
       render :new
     end
   end

@@ -1,13 +1,17 @@
-<%= form_for @topic do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
+<div class="new-form-container panel">
+  <div class="form">
+    <%= form_for @topic do |f| %>
+      <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
 
-  <div>
-    <%= f.label :category %>
-    <%= f.select :category, @categories.map {|a| [a, a] } %>
-  </div>
+      <div>
+        <%= f.label :category %>
+        <%= f.select :category, @categories.map {|a| [a, a] } %>
+      </div>
 
-  <%= f.submit 'Submit Topic', class:"button radius" %>
-<% end %>
+      <%= f.submit 'Submit Topic', data: {disable_with: "Please wait..."}, class:"button radius" %>
+    <% end %>
+  </div>
+</div>

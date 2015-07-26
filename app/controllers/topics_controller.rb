@@ -1,14 +1,17 @@
 class TopicsController < ApplicationController
   def index
+    authenticate!
     @topics = Topic.all.page(params[:page]).per(4)
   end
 
   def show
+    authenticate!
     @topic = Topic.find(params[:id])
     @debates = Debate.where(topic: @topic)
   end
 
   def new
+    authenticate!
     @topic = Topic.new
     @categories = ["Politics", "Religion", "Pop Culture","Philosophy", "Other"]
   end

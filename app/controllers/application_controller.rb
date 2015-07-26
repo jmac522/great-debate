@@ -9,4 +9,11 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :profile_photo
   end
+
+  def authenticate!
+    unless signed_in?
+      flash[:notice] = 'You need to sign in if you want to do that!'
+      redirect_to homes_path
+    end
+  end
 end

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'homes#index'
   devise_for :users,
              controllers: { registrations: "my_devise/registrations"}
+
+  resources :homes, only: [:index]
   resources :topics do
     resources :debates, only: [:new, :create]
   end

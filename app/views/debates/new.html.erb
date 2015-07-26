@@ -1,15 +1,19 @@
-<h1><%= @topic.title %></h1>
-<%= form_for [@topic, @debate] do |f| %>
+<div class="new-form-container panel">
+  <div><h1><%= @topic.title %></h1></div>
+  <div class="form">
+    <%= form_for [@topic, @debate] do |f| %>
 
-    <div>
-      <%= label_tag :side_1 %>
-      <%= text_field_tag :side_1 %>
-    </div>
+        <div>
+          <%= label_tag :side_1 %>
+          <%= text_field_tag :side_1 %>
+        </div>
 
-    <div>
-      <%= label_tag :side_2 %>
-      <%= text_field_tag :side_2 %>
-    </div>
+        <div>
+          <%= label_tag :side_2 %>
+          <%= text_field_tag :side_2 %>
+        </div>
 
-    <%= f.submit 'Create Debate', class:"button radius" %>
-  <% end %>
+        <%= f.submit 'Create Debate', class:"button radius" %>
+      <% end %>
+  </div>
+</div>

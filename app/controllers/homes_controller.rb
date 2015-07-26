@@ -4,6 +4,6 @@ class HomesController < ApplicationController
     @argument_user = @top_argument.debate_participant.user
     @recent_debates = Debate.all.order("created_at DESC").limit(3)
     @top_users = User.all.order("xp DESC").limit(10)
-    @recent_topics = Topic.all.order("created_at DESC").limit(3)
+    @recent_topic = Topic.last
   end
 end
