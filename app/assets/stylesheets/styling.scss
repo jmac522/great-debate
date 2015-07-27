@@ -114,6 +114,15 @@ input.button:hover {
   opacity: 0.9;
 }
 
+.side-link:active a {
+  border-radius: 10px;
+  background-color: white !important;
+  border: 3px solid $goldenrod;
+  color: $primary-color !important;
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
 .top-bar {
   background: none;
   height: 3.750em;
@@ -138,19 +147,12 @@ input.button:hover {
 
   .active {
 
-    background-image: -webkit-gradient(
-    linear,
-    left bottom,
-    right bottom,
-    color-stop(0.02, $accent-color),
-    color-stop(0.02, $background)
-    ) !important;
-    background-image: -o-linear-gradient(right, $accent-color 2%, $background 2%) !important;
-    background-image: -moz-linear-gradient(right, $accent-color 2%, $background 2%) !important;
-    background-image: -webkit-linear-gradient(right, $accent-color 2%, $background 2%) !important;
-    background-image: -ms-linear-gradient(right, $accent-color 2%, $background 2%) !important;
-    background-image: linear-gradient(to right, $accent-color 2%, $background 2%) !important;
+    border-radius: 10px;
+    background-color: white !important;
+    border: 3px solid $goldenrod;
     color: $primary-color !important;
+    text-decoration: underline;
+    opacity: 0.9;
   }
 
 }
@@ -309,6 +311,19 @@ body {
   h1 {
     color: white;
   }
+  h4 {
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+    font-family: $main-font;
+  }
+  .topic-versus {
+    padding-top: 66px;
+    h1 {
+      font-family: $secondary-font;
+      text-decoration: none;
+    }
+  }
 }
 
 .item {
@@ -319,15 +334,6 @@ body {
   margin: 10px;
 }
 
-.topic-versus {
-  padding-top: 25px;
-  h1{
-    color: white;
-    font-family: $secondary-font;
-    text-align: center;
-    text-decoration: none;
-  }
-}
 
 .topic-container {
   border: 1px solid lightgrey;
@@ -406,7 +412,7 @@ li.side-logo {
     margin-bottom: 0px;
     background-color: rgb(66,66,66);
     color: whitesmoke;
-    border-bottom: 2px solid #d9991a;
+    border-bottom: 5px solid #d9991a;
   }
 }
 
@@ -417,7 +423,6 @@ li.side-logo {
   left: 13em;
   background-color: rgba($background, 0.7);
   margin: auto;
-  border-bottom: 3px solid rgb(217,153,26);
     h2 {
       padding-top: 5px;
     }
@@ -425,7 +430,7 @@ li.side-logo {
 
 .top-bar-bottom {
   width: 100%;
-  height: 3px;
+  height: 5px;
   background-color: #3299bb;
 
 }
@@ -454,9 +459,9 @@ li.side-logo {
 }
 
 .argument-form-container {
-  margin-top: 268px;
+  margin-top: 168px;
   h2 {
-    color: white
+    color: black;
   }
 }
 
@@ -560,7 +565,7 @@ label {
   height: 80%;
   .home-topic {
     background-color: white;
-    height: 100%;
+    height: 70%;
     text-align: center;
   }
 
@@ -575,4 +580,41 @@ label {
     text-align: center;
     text-decoration: underline;
   }
+}
+
+.side-pick {
+  margin-top: 157px;
+}
+
+.feat-body {
+  height: 289px;
+  overflow: auto;
+}
+
+.top-argument-avatar {
+  height: 75px;
+  width: 75px;
+}
+
+.marg {
+  margin-bottom: 0 !important;
+}
+
+.new_vote {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.topic-side-avatar img {
+  box-shadow: 2px 2px 4px;
+}
+
+form {
+  textarea {
+    height: 150px;
+  }
+}
+
+.top-argument-score {
+  border-bottom: 1px solid lightgrey;
 }

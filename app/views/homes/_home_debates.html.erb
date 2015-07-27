@@ -9,11 +9,13 @@
     </div>
     <% if debate.player_1 %>
       <div class="topic-debate-player small-12 columns panel">
-        <div class="topic-side-avatar small-6 columns">
-          <%= image_tag(debate.player_1.avatar) %>
-        </div>
-        <div class="topic-side-user small-6 columns">
-          <%= debate.player_1.email %>
+        <div class="panel small-12 columns">
+          <div class="topic-side-avatar small-6 columns">
+            <%= image_tag(debate.player_1.avatar) %>
+          </div>
+          <div class="topic-side-user small-6 columns">
+            <%= debate.player_1.user_name %>
+          </div>
         </div>
       </div>
     <% end %>
@@ -30,14 +32,18 @@
       <%= debate.side_2.title %>
     </div>
     <% if debate.player_2 %>
-    <div class="topic-debate-player small-12 columns panel">
-      <div class="topic-side-2-user small-6 columns">
-        <%= debate.player_2.email %>
+      <div class="topic-debate-player small-12 columns panel">
+        <div class="panel small-12 columns">
+          <div class="topic-side-2-user small-6 columns">
+            <%= debate.player_2.user_name %>
+          </div>
+          <div class="topic-side-avatar small-6 columns">
+            <%= image_tag(debate.player_2.avatar) %>
+          </div>
+        </div>
       </div>
-      <div class="topic-side-avatar small-6 columns">
-        <%= image_tag(debate.player_2.avatar) %>
-      </div>
-    </div>
+    <% else %>
+    <h3> Waiting for opponent...</h3>
     <% end %>
   </div>
 </div>

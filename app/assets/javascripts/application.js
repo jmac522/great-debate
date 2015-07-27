@@ -20,6 +20,11 @@
 $(window).on('load', function () {
   $(document).foundation();
   $('.alert-box').closest('[data-alert]').fadeOut(3500);
+  $("[href]").each(function() {
+  if (this.href == window.location.href) {
+      $(this).addClass("active");
+      }
+  });
 });
 
 $(function () {

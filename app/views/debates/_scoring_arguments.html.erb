@@ -1,9 +1,12 @@
 <div class="argument-content">
-<div class="argument-container panel">
+<div class="argument-container panel" data-equalizer>
+  <div class="flash-debate">
+    <%= render 'shared/flash' %>
+  </div>
   <div class="small-5 columns side-arguments">
 
       <% @side_1_arguments.each_with_index do |argument, round| %>
-        <div class="argument panel">
+        <div class="argument panel" data-equalizer-watch>
           <div><h3>Round <%= round + 1 %></h3></div>
           <div class="arg-body"><%= argument.body %></div>
           <div class="arg-applauds">Applauds:<%= argument.score %></div>
@@ -14,7 +17,7 @@
                 <%= f.hidden_field :debate_participant, value: argument.debate_participant.id %>
                 <%= f.hidden_field :argument, value: argument.id %>
 
-                <%= f.submit "Applaud this argument", class:"button radius" %>
+                <%= f.submit "Applaud this argument", data: {disable_with: "Please wait..."}, class:"button small round" %>
               <% end %>
             <% end %>
           </div>
@@ -27,7 +30,7 @@
   <div class="small-5 columns side-arguments">
 
       <% @side_2_arguments.each_with_index do |argument, round| %>
-        <div class="argument panel">
+        <div class="argument panel" data-equalizer-watch>
           <div><h3>Round <%= round + 1 %></h3></div>
           <div class="arg-body"><%= argument.body %></div>
           <div class="arg-applauds">Applauds:<%= argument.score %></div>
@@ -38,12 +41,15 @@
                 <%= f.hidden_field :debate_participant, value: argument.debate_participant.id %>
                 <%= f.hidden_field :argument, value: argument.id %>
 
-                <%= f.submit "Applaud this argument", class:"button radius" %>
+                <%= f.submit "Applaud this argument", data: {disable_with: "Please wait..."}, class:"button small round" %>
               <% end %>
             <% end %>
           </div>
         </div>
       <% end %>
   </div>
+</div>
+<div class="small-12 columns">
+<h2><%= link_to "Back to #{@debate.topic.title}", topic_path(@debate.topic) %><h2>
 </div>
 </div>

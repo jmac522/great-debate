@@ -1,5 +1,8 @@
 <div class="argument-content">
   <div class="argument-container">
+    <div class="flash-debate">
+      <%= render 'shared/flash' %>
+    </div>
     <div class="small-5 columns side-arguments">
         <% @side_1_arguments.each_with_index do |argument, round| %>
           <div class="argument panel">
@@ -22,12 +25,17 @@
         <% end %>
     </div>
   </div>
-  <div class="join-side-form small-12 columns">
-    <%= form_for [ @debate, @debate_participant ] do |f|%>
-      <h2><%= "Opponent is arguing #{@debate.taken_side.title}" %></h2>
-      <%= f.hidden_field :side, value: @debate.remaining_side.id %>
+  <div class="new-form-container small-12 columns">
+    <div class="form panel">
+      <%= form_for [ @debate, @debate_participant ] do |f|%>
+        <h2><%= "Opponent is arguing #{@debate.taken_side.title}" %></h2>
+        <%= f.hidden_field :side, value: @debate.remaining_side.id %>
 
-      <%= f.submit "Defend #{@debate.remaining_side.title}", class:"button radius" %>
-    <% end %>
+        <%= f.submit "Defend #{@debate.remaining_side.title}", data: {disable_with: "Please wait..."}, class:"button radius" %>
+      <% end %>
     </div>
+  </div>
+  <div class="small-12 columns">
+  <h2><%= link_to "Back to #{@debate.topic.title}", topic_path(@debate.topic) %><h2>
+  </div>
 </div>

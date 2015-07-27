@@ -21,4 +21,18 @@ class User < ActiveRecord::Base
     false
   end
 
+  def rank_up
+    if self.xp >= 1000
+      self.update(rank: "Debate Champion")
+    elsif self.xp >= 500
+      self.update(rank: "Debate Master")
+    elsif self.xp >= 100
+      self.update(rank: "Debate Expert")
+    elsif self.xp >= 50
+      self.update(rank: "Debate Amateur")
+    elsif self.xp >= 25
+      self.update(rank: "Debate Novice")
+    end
+  end
+
 end

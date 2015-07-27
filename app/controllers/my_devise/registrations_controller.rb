@@ -1,9 +1,10 @@
 class MyDevise::RegistrationsController < Devise::RegistrationsController
-  def create
+  def create  
     build_resource(sign_up_params)
     resource.city = City.find_or_create_by(title: params[:user][:city])
     resource.state = State.find(params[:user][:state])
     resource.avatar = params[:user][:avatar]
+    resource.user_name = params[:user][:user_name]
     resource.save
     yield resource if block_given?
     if resource.persisted?

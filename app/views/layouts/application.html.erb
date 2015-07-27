@@ -14,16 +14,16 @@
       <div class="small-12 columns">
         <ul class="side-nav small-12 columns">
 
-          <li class="side-logo"><a href=<%= topics_path %> id="logo"><%= image_tag "logo2.png", size: '300', alt: "Great Debate Logo" %></a></li>
+          <li class="side-logo"><%= image_tag "logo2.png", size: '300', alt: "Great Debate Logo" %></li>
           <br>
           <br>
           <br>
+          <li class="side-link"><%= link_to "Home", homes_path %></li>
           <li class="side-link"><%= link_to "All Topics", topics_path %></li>
           <li class="side-link"><%= link_to "Add Topic", new_topic_path %></li>
-          <li class="side-link"><%= link_to "About Us", topics_path %></li>
           <li class="side-link"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
           <li class="bottom-avatar"><%= image_tag(current_user.avatar) if current_user.avatar %></li>
-          <li class="bottom-avatar-text">User: <%= current_user.email %></li>
+          <li class="bottom-avatar-text">User: <%= current_user.user_name %></li>
 
         </ul>
       </div>
@@ -41,8 +41,6 @@
           <br>
           <br>
           <br>
-          <li class="side-link"><%= link_to "All Topics", topics_path %></li>
-          <li class="side-link"><%= link_to "Add topic", new_topic_path %></li>
           <li class="side-link"><%= link_to "About Us", topics_path %></li>
           <li class="side-link"><%= link_to 'Sign Up', new_user_registration_path %></li>
           <li class="side-link"><%= link_to 'Sign In', new_user_session_path %></li>

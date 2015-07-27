@@ -12,19 +12,44 @@
       <%= link_to "Start a Debate", new_topic_debate_path(@topic) %>
     </h2>
   </div>
+  <div class="your-debates pan panel">
+    <h1>Your Debates</h1>
+    <h2>Completed</h2>
+    <% @debates.each do |debate| %>
+      <% if debate.participant?(current_user) %>
+        <% if debate.complete? %>
+          <%= render partial: "topic_debates", locals: {debate: debate} %>
+        <% end %>
+      <% end %>
+    <% end %>
+        <br>
+        <br>
+    <h2>In Progress</h2>
+    <% @debates.each do |debate| %>
+      <% if debate.participant?(current_user) %>
+        <% unless debate.complete? %>
+          <%= render partial: "topic_debates", locals: {debate: debate} %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
   <div class="score-debates pan panel">
     <h1>Score a Completed Debate</h1>
     <% @debates.each do |debate| %>
-      <% if !(debate.empty? || debate.open?) %>
-        <%= render partial: "topic_debates", locals: {debate: debate} %>
+      <% unless debate.participant?(current_user) %>
+        <% if debate.complete? %>
+          <%= render partial: "topic_debates", locals: {debate: debate} %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
   <div class="join-debate pan panel">
-    <h1>Open Debates</h1>
+    <h1>Join an Open Debate </h1>
     <% @debates.each do |debate| %>
-      <% if debate.empty? || debate.open? %>
-        <%= render partial: "topic_debates", locals: {debate: debate} %>
+      <% unless debate.participant?(current_user) %>
+        <% if debate.empty? || debate.open? %>
+          <%= render partial: "topic_debates", locals: {debate: debate} %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
@@ -40,7 +65,7 @@
       <% end %>
     </div>
     <div class="topic-pie-chart graph panel">
-      <%= pie_chart (@topic.sides.map {|side| [side.title, side.points]}), colors: ["FF9900","3299BB","black","BCBCBC"] %>
+      <%= pie_chart (@topic.sides.order("created_at ASC").map {|side| [side.title, side.points]}), colors: ["FF9900","3299BB","black","BCBCBC","E9E9E9","424242"] %>
     </div>
   </div>
 </div>

@@ -1,9 +1,24 @@
 
 
 <% if @debate.empty? %>
+<div class="debate-top-bar">
   <div class="topic-title">
     <h1><%= @debate.topic.title %></h1>
   </div>
+  <div class="small-5 columns side-arguments">
+    <h2><%= @debate.side_1.title %></h2>
+
+  </div>
+  <div class="versus small-2 columns">
+    <h1>VS.</h1>
+  </div>
+  <div class="small-5 columns side-arguments">
+    <h2><%= @debate.side_2.title %></h2>
+  </div>
+  <div class='top-bar-bottom small-12 columns'></div>
+</div>
+<div class="new-form-container panel side-pick">
+<div class="form">
   <h2>Pick a Side</h2>
     <%= form_for [ @debate, @debate_participant ] do |f|%>
       <div>
@@ -11,10 +26,11 @@
         <%= f.select :side, @sides.map {|s| [s.title, s.id] } %>
       </div>
 
-      <%= f.submit 'Join Debate', class:"button radius" %>
+      <%= f.submit 'Join Debate', data: {disable_with: "Please wait..."}, class:"button radius" %>
 
     <% end %>
-
+</div>
+</div>
 <% elsif @debate.open? %>
 
   <% if @debate.participant?(current_user) %>
@@ -34,18 +50,21 @@
         <h2><%= @debate.side_2.title %></h2>
       </div>
       <div class='top-bar-bottom small-12 columns'></div>
-      <div class='top-bar-bottom'></div>
     </div>
     <div class="argument-form-container small-12 columns">
-      <h2>Make your Opening Argument for <%= @debate.taken_side.title %></h2>
-      <%= form_for [ @debate, @argument ] do |f|%>
-        <%= f.hidden_field :side, value: @debate.taken_side.id %>
+      <div class="new-form-container panel">
+        <div class="form">
+          <h2>Make your Opening Argument for <%= @debate.taken_side.title %></h2>
+          <%= form_for [ @debate, @argument ] do |f|%>
+            <%= f.hidden_field :side, value: @debate.taken_side.id %>
 
-        <%= f.label(:body) %>
-        <%= f.text_area :body %>
+            <%= f.label(:body) %>
+            <%= f.text_area :body %>
 
-        <%= f.submit "Submit Argument", class:"button radius" %>
-      <% end %>
+            <%= f.submit "Submit Argument", data: {disable_with: "Please wait..."}, class:"button radius" %>
+          <% end %>
+        </div>
+      </div>
     </div>
     <% else %>
     <div class="debate-top-bar">
@@ -63,7 +82,6 @@
         <h2><%= @debate.side_2.title %></h2>
       </div>
       <div class='top-bar-bottom small-12 columns'></div>
-      <div class='top-bar-bottom'></div>
     </div>
       <%= render 'arguments' %>
       <h2>Waiting for opponent to join</h2>
@@ -71,9 +89,9 @@
   <% else %>
 
     <% if @debate.arguments.count == 0 %>
-
-      waiting for opening argument
-
+      <div class="small-12 columns panel">
+        Waiting for opening argument...
+      </div>
     <% else %>
     <div class="debate-top-bar">
       <div class="topic-title">
@@ -90,7 +108,6 @@
         <h2><%= @debate.side_2.title %></h2>
       </div>
       <div class='top-bar-bottom small-12 columns'></div>
-      <div class='top-bar-bottom'></div>
     </div>
       <%= render 'arguments_join' %>
 
@@ -116,7 +133,6 @@
         <h2><%= @debate.side_2.title %></h2>
       </div>
       <div class='top-bar-bottom small-12 columns'></div>
-      <div class='top-bar-bottom'></div>
     </div>
       <%= render 'arguments' %>
       Scoring Begins!!
@@ -138,7 +154,6 @@
           <h2><%= @debate.side_2.title %></h2>
         </div>
         <div class='top-bar-bottom small-12 columns'></div>
-        <div class='top-bar-bottom'></div>
       </div>
         <%= render 'arguments_turn' %>
       <% else %>
@@ -157,7 +172,6 @@
           <h2><%= @debate.side_2.title %></h2>
         </div>
         <div class='top-bar-bottom small-12 columns'></div>
-        <div class='top-bar-bottom'></div>
       </div>
         <%= render 'arguments' %>
 
@@ -181,9 +195,7 @@
         <h2><%= @debate.side_2.title %></h2>
       </div>
       <div class='top-bar-bottom small-12 columns'></div>
-      <div class='top-bar-bottom'></div>
     </div>
     <%= render 'scoring_arguments' %>
   <% end %>
-
 <% end %>

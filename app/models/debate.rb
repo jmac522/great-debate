@@ -85,6 +85,10 @@ class Debate < ActiveRecord::Base
     end
   end
 
+  def complete?
+    self.arguments.count == 6
+  end
+
   def empty?
     debate_participants.count == 0
   end

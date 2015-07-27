@@ -19,6 +19,9 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
     if @topic.save
+      current_user.xp += 1
+      current_user.rank_up
+      current_user.save
       flash[:notice] = "#{@topic.title} added!"
       redirect_to topics_path
     else

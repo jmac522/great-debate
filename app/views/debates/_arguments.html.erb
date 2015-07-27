@@ -1,5 +1,8 @@
 <div class="argument-content">
   <div class="argument-container panel">
+    <div class="flash-debate">
+      <%= render 'shared/flash' %>
+    </div>
     <div class="small-5 columns side-arguments">
         <% @side_1_arguments.each_with_index do |argument, round| %>
           <div class="argument panel">
@@ -9,7 +12,7 @@
           </div>
         <% end %>
     </div>
-    <div class="versus small-1 columns">
+    <div class="versus small-2 columns">
 
     </div>
     <div class="small-5 columns side-arguments">
@@ -21,5 +24,8 @@
           </div>
         <% end %>
     </div>
+  </div>
+  <div class="small-12 columns">
+  <h2><%= link_to "Back to #{@debate.topic.title}", topic_path(@debate.topic) %><h2>
   </div>
 </div>

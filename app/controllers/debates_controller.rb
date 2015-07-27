@@ -30,6 +30,9 @@ class DebatesController < ApplicationController
     @debate = Debate.new(topic: find_topic)
     if !(params[:side_1] == "" && params[:side_2] == "")
       @debate.save
+      current_user.xp += 1
+      current_user.rank_up
+      current_user.save
       side_1 = Side.find_or_create_by!(title: params[:side_1], topic: @debate.topic)
       DebateSide.create!(side: side_1, debate: @debate)
       side_2 = Side.find_or_create_by!(title: params[:side_2], topic: @debate.topic)

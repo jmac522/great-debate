@@ -5,12 +5,13 @@ class VotesController < ApplicationController
     @vote = Vote.new(user: User.find(vote_params[:user]),
                      argument: Argument.find(vote_params[:argument]),
                      debate_participant: DebateParticipant.find(vote_params[:debate_participant]))
-   binding.pry
     if @vote.save
       @vote.debate_participant.score += @vote.value
       @vote.debate_participant.side.points += @vote.value
       @vote.debate_participant.user.xp += @vote.value * 10
+      @vote.debate_participant.user.rank_up
       @vote.user.xp += 1
+      @vote.user.rank_up
       @vote.argument.score += @vote.value
       @vote.argument.save
       @vote.user.save
