@@ -18,9 +18,12 @@ $(function () {
               text: 'Score'
           }
       },
+
+
       series: [{
           name: 'Votes',
-          data: scores
+          data: scores,
+          color: "rgb(50,153,187)"
       }]
   };
 
