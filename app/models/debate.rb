@@ -100,4 +100,11 @@ class Debate < ActiveRecord::Base
   def self.recent
     all.order("created_at DESC").limit(3)
   end
+
+  def side_create
+    side_1 = Side.find_or_create_by!(title: params[:side_1], topic: self.topic)
+    DebateSide.create!(side: side_1, debate: self)
+    side_2 = Side.find_or_create_by!(title: params[:side_2], topic: self.topic)
+    DebateSide.create!(side: side_2, debate: self)
+  end
 end

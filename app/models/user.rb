@@ -39,4 +39,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def debate_create
+    self.xp += 1
+    self.rank_up
+    self.save
+  end
+
 end
