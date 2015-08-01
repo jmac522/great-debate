@@ -2,6 +2,7 @@ class TopicsController < ApplicationController
   def index
     authenticate!
     @topics = Topic.all.page(params[:page]).per(4)
+    @topics1 = Topic.all
   end
 
   def show

@@ -1,26 +1,50 @@
 <%= render partial: "shared/flash" %>
-<div class="topic-index-container small-12 columns">
   <h1 style="text-align: center">All Topics</h1>
-  <div class="topic-container panel row" data-equalizer>
-    <% @topics.each do |topic| %>
-        <div class="topic-tile small-3 columns end" data-equalizer-watch>
-          <div class="panel">
-            <div><a href="<%= topic_path(topic) %>"><span class="tile-link"></span></a></div>
-            <div class="title small-12 columns">
-              <h2><%= topic.title %></h2>
-            </div>
-            <div class="category-img small-12 columns">
-              <%= image_tag(topic.category_img) %>
+<div id="container1">
+    <img src="http://timivey.com/external/codepen/basic-slider/images/arrow-left.png" alt="previous" id="prev">
+    <div id="slider">
+      <% @topics1.each_slice(3) do |topic| %>
+        <div class="slide" data-equalizer>
+          <div class="topic-tile small-4 columns end" data-equalizer-watch>
+            <div class="panel">
+              <div><a href="<%= topic_path(topic[0]) %>"><span class="tile-link"></span></a></div>
+              <div class="title small-12 columns">
+                <h2><%= topic[0].title %></h2>
+              </div>
+              <div class="category-img small-12 columns">
+                <%= image_tag(topic[0].category_img) %>
+              </div>
             </div>
           </div>
+          <% unless topic[1].nil? %>
+            <div class="topic-tile small-4 columns end" data-equalizer-watch>
+              <div class="panel">
+                <div><a href="<%= topic_path(topic[1]) %>"><span class="tile-link"></span></a></div>
+                <div class="title small-12 columns">
+                  <h2><%= topic[1].title %></h2>
+                </div>
+                <div class="category-img small-12 columns">
+                  <%= image_tag(topic[1].category_img) %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <% unless topic[2].nil? %>
+            <div class="topic-tile small-4 columns end" data-equalizer-watch>
+              <div class="panel">
+                <div><a href="<%= topic_path(topic[2]) %>"><span class="tile-link"></span></a></div>
+                <div class="title small-12 columns">
+                  <h2><%= topic[2].title %></h2>
+                </div>
+                <div class="category-img small-12 columns">
+                  <%= image_tag(topic[2].category_img) %>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
-    <% end %>
-    <div class="row topic-index-bottom">
-      <div  class="small-12 columns paginate">
-        <%= paginate @topics %>
-        <%= page_entries_info @topics %>
-      </div>
-      <div class="small-12 columns"<h2><%= link_to "Add Topic", new_topic_path %></h2></div>
+      <% end %>
     </div>
-  </div>
+
+    <img src="http://timivey.com/external/codepen/basic-slider/images/arrow-right.png" alt="next" id="next" />
 </div>

@@ -158,6 +158,8 @@ input.button:hover {
 }
 
 .topic-tile {
+  height: inherit;
+  margin-top: 25px;
   .panel {
     height: 100%;
     text-align: center;
@@ -617,4 +619,64 @@ form {
 
 .top-argument-score {
   border-bottom: 1px solid lightgrey;
+}
+
+
+
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+#container1 {
+    width: 980px;
+    margin: 40px auto;
+}
+#slider {
+    width: 940px;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    float: left;
+    padding: 3px;
+    border: #666 solid 2px;
+    border-radius: 5px;
+}
+
+
+
+.slide {
+    position: absolute;
+}
+
+.slide-copy {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    background: rgba(0,0,0,0.5);
+}
+
+#prev,
+#next {
+    float: left;
+    margin-top: 130px;
+    cursor: pointer;
+    position: relative;
+    z-index: 100;
+}
+#prev {
+    margin-right: -45px;
+}
+#next {
+    margin-left: -45px;
+}
+
+h1 {
+  text-align: center;
+  font-family: $main-font;
 }
