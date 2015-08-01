@@ -96,4 +96,8 @@ class Debate < ActiveRecord::Base
   def open?
     debate_participants.count == 1
   end
+
+  def self.recent
+    all.order("created_at DESC").limit(3)
+  end
 end

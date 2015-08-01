@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
     false
   end
 
+  def self.top
+    all.order("xp DESC").limit(10)
+  end
+
   def rank_up
     if self.xp >= 1000
       self.update(rank: "Debate Champion")
